@@ -26,18 +26,27 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+
+The game's purpose is to generate a random number that a user can guess. The user can guess the number a preset number of times based on the difficulty selected. Users can enable hints to help guide them towards the correct number. The game ends when the user guesses the correct number or the user has used up all of their attempts.
+
 - [ ] Detail which bugs you found.
+
+The bugs I found were: backwards hints, new game button did not work correctly, and the submit guess button only worked every other click. The backwards hint bug guided the user in the incorrect direction. The new game button generated a new number, but did not allow the user to submit new guesses. The submit guess button required the user to click on the button twice in order to submit their guess.
+
 - [ ] Explain what fixes you applied.
+
+To correct the backwards hints bug, I corrected the strings that were returned in the check_guess() function, so that the hints guided the user in the correct direction. To correct the new game button bug, I updated the session state status to "playing" and the session state attempts to 1, when there was a new game. To correct the submit guess button bug, I removed three lines of code that was converting the guess to a string every other guess submission, and causing the submission to not work every other time.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 50
+2. Game returns "Go Lower"
+3. User enters a guess of 40 -> "Go Lower"
+4. User enters a guess of 30 -> "Go Higher"
+5. Attempts left decreases with each guess
+6. Game ends after the correct guess or the user has exhausted the number of attemps allowed, and gives the final score
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
